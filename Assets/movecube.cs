@@ -9,6 +9,7 @@ public class movecube : MonoBehaviour
     public KeyCode upKey;
     public KeyCode downKey;
     public Color colour;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +23,15 @@ public class movecube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(upKey))
+        if (Input.GetKey(upKey) && transform.position.y < 5)
         {
-            RigidBody2d.velocity = Vector2.up * 3 ;
+            RigidBody2d.velocity = Vector2.up * speed ;
 
         }
 
-        else if (Input.GetKey(downKey))
+        else if (Input.GetKey(downKey) && transform.position.y > -5)
         {
-            RigidBody2d.velocity = Vector2.down * 3;
+            RigidBody2d.velocity = Vector2.down * speed;
         }
         else
         {
